@@ -2,7 +2,7 @@
 input_dir="$1"
 output_dir="$2"
 
-find "$input_dir" -type f -exec cp {} "$output_dir" \;
+
 
 declare -A counts
 find "$input_dir" -type f -print0 | while IFS= read -r -d $'\0' file; do
@@ -23,3 +23,5 @@ find "$input_dir" -type f -print0 | while IFS= read -r -d $'\0' file; do
 		mv "$file" "$dirname/$new"
 	fi
 done
+
+find "$input_dir" -type f -exec cp {} "$output_dir" \;
